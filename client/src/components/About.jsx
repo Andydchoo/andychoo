@@ -13,7 +13,8 @@ import { ThemeProvider } from "@emotion/react";
 import { theme } from "../styles/styles";
 
 //  Todo
-//    -Padding between photo and text on large view is nonexistent
+//    - Padding between photo and text on large view is nonexistent
+//    - Change styling and description
 
 export default function About() {
   return (
@@ -74,12 +75,12 @@ export default function About() {
 
           <Stack
             direction="column"
-            sx={{ justifyContent: "space-evenly", flex: "1", m: "20px" }}
+            sx={{ justifyContent: "space-evenly", flex: "1", m: "10%" }}
           >
             <Typography
               component="h1"
               variant="h2"
-              align="center"
+              align="left"
               color="text.main"
               fontWeight="600"
               gutterBottom
@@ -89,7 +90,7 @@ export default function About() {
             >
               Hello!
             </Typography>
-            <Typography variant="h6" align="center" color="text.sub" paragraph>
+            <Typography variant="h6" align="left" color="text.sub" paragraph>
               I'm Andy, a full-stack web developer, committed to pursuing
               constant growth and refinement of my skills. I am at my strongest
               in any department where I may express technical skill, with my

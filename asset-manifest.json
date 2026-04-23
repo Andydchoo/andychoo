@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/andychoo/static/css/main.b3a7b302.css",
-    "main.js": "/andychoo/static/js/main.aa69b0af.js",
-    "index.html": "/andychoo/index.html",
-    "main.b3a7b302.css.map": "/andychoo/static/css/main.b3a7b302.css.map",
-    "main.aa69b0af.js.map": "/andychoo/static/js/main.aa69b0af.js.map"
+    "main.css": "/static/css/main.b3a7b302.css",
+    "main.js": "/static/js/main.66dce731.js",
+    "index.html": "/index.html",
+    "main.b3a7b302.css.map": "/static/css/main.b3a7b302.css.map",
+    "main.66dce731.js.map": "/static/js/main.66dce731.js.map"
   },
   "entrypoints": [
     "static/css/main.b3a7b302.css",
-    "static/js/main.aa69b0af.js"
+    "static/js/main.66dce731.js"
   ]
 }

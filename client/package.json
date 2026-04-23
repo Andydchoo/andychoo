@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "1.0.0",
-  "homepage": "https://andydchoo.github.io/react-gh-pages",
+  "homepage": "https://andychoo.com",
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
@@ -23,8 +23,8 @@
     "webpack": "^5.75.0"
   },
   "scripts": {
-    "deploy": "gh-pages -d build",
     "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -38,9 +38,9 @@ export default function Navbar() {
         elevation={5}
         sx={{ backgroundColor: "background.variant" }}
       >
-        <Box padding="0px 25px">
+        <Box padding="0px 30px">
           <Toolbar disableGutters>
-            {/* Menu */}
+            {/* Hamburger Menu */}
             <Box
               sx={{
                 flex: 1,
@@ -90,7 +90,7 @@ export default function Navbar() {
               </Menu>
             </Box>
 
-            {/* Title text */}
+            {/* Name text */}
             <Typography
               variant="h4"
               noWrap
@@ -98,7 +98,7 @@ export default function Navbar() {
               href="/"
               sx={{
                 display: { xs: "none", sm: "none", med: "flex" },
-                flex: 1,
+                flex: 0.5,
                 fontFamily: "Open sans",
                 fontWeight: 700,
                 letterSpacing: ".1rem",
@@ -115,6 +115,7 @@ export default function Navbar() {
               sx={{
                 flex: 1,
                 display: { xs: "none", sm: "none", md: "flex" },
+                justifyContent: "space-evenly",
               }}
             >
               {pages.map((page) => (
@@ -124,7 +125,7 @@ export default function Navbar() {
                   sx={{
                     margin: 2,
                     color: "text.main",
-                    display: "block",
+                    display: "flex",
                     fontFamily: "Open sans",
                     fontWeight: "600",
                   }}
@@ -138,7 +139,7 @@ export default function Navbar() {
             {/* Social's icons */}
             <Box
               sx={{
-                flex: 1,
+                flex: 0.5,
                 display: { xs: "flex", sm: "flex" },
                 justifyContent: "flex-end",
               }}

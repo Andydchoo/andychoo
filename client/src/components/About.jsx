@@ -20,6 +20,7 @@ export default function About() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      {/* Anchor tag for About */}
       <a
         className="anchor"
         id="About"
@@ -33,6 +34,7 @@ export default function About() {
       >
         a
       </a>
+      {/* Container for whole section */}
       <Box
         sx={{
           pt: 3,
@@ -54,6 +56,7 @@ export default function About() {
             alignItems: "center",
           }}
         >
+          {/* Small display header */}
           <Typography
             component="h1"
             variant="h2"
@@ -65,17 +68,24 @@ export default function About() {
           >
             About me
           </Typography>
-          <Card variant="outlined" sx={{ mb: 4, flex: "1" }}>
+          {/* Headshot card */}
+          <Card variant="outlined" sx={{ mb: 4, display: "flex", flex: 1 }}>
             <CardMedia
               component="img"
-              src="assets/headshot.webp"
+              src="/assets/headshot.webp"
               alt="Andy Choo"
             />
           </Card>
 
+          {/* Stack for description for about me */}
           <Stack
             direction="column"
-            sx={{ justifyContent: "space-evenly", flex: "1", m: "10%" }}
+            sx={{
+              display: "flex",
+              justifyContent: "space-evenly",
+              flex: 1,
+              m: "10%",
+            }}
           >
             <Typography
               component="h1"
@@ -91,29 +101,15 @@ export default function About() {
               Hello!
             </Typography>
             <Typography variant="h6" align="left" color="text.sub" paragraph>
-              I'm Andy, a full-stack web developer, committed to pursuing
-              constant growth and refinement of my skills. I am at my strongest
-              in any department where I may express technical skill, with my
-              creativity. In my free time I love creating digital paintings,
-              playing guitar, golf, pickleball, and resistance training in the
-              gym.
+              I'm Andy, a full-stack software engineer with professional
+              experience in cybersecurity and web development. It's been my
+              daily goal to improve every day and making the effort to endulge
+              in my hobbies. I get happiness out of practicing digital art,
+              collecting music, playing golf, and meeting new people with shared
+              interests!
             </Typography>
           </Stack>
         </Container>
-
-        {/* <Stack
-          sx={{ pt: 4 }}
-          direction="row"
-          spacing={3}
-          justifyContent="center"
-        >
-          <Button variant="contained" href="#Projects" size="large">
-            Projects
-          </Button>
-          <Button variant="outlined" href="#Contact" size="large">
-            Contact
-          </Button>
-        </Stack> */}
       </Box>
     </ThemeProvider>
   );

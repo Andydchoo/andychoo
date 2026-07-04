@@ -5,14 +5,13 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  CssBaseline,
   Grid,
   Box,
   Typography,
   Container,
 } from "@mui/material";
-import { ThemeProvider } from "@emotion/react";
-import { theme } from "../styles/styles";
+
+// Play gifs for projects to give quick preview of website
 
 const projects = [
   {
@@ -43,87 +42,96 @@ const projects = [
     demoUrl: "https://mern-todo-front.onrender.com/",
     sourceUrl: "https://github.com/Andydchoo/Mern-todo",
   },
+  {
+    title: "Project 5",
+    description: "Description",
+    imageUrl: "",
+    demoUrl: "",
+    sourceUrl: "",
+  },
+  {
+    title: "Project 6",
+    description: "Description",
+    imageUrl: "",
+    demoUrl: "",
+    sourceUrl: "",
+  },
 ];
 
 export default function Projects() {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <a
-        className="anchor"
-        id="Projects"
-        alt="anchor"
-        href="/#"
-        style={{
-          display: "block",
-          position: "relative",
-          top: "-68px",
-          visibility: "hidden",
-        }}
-      >
+    <>
+      <a className="projects-anchor" id="Projects" href="/#">
         a
       </a>
-      <Box sx={{ display: "block", alignItems: "center", padding: 4 }}>
-        <Container
-          sx={{
-            alignItems: "center",
-          }}
-        >
+      <Box className="projects">
+        <Container>
           <Typography
+            className="projects-title"
             component="h1"
             variant="h2"
             fontWeight="600"
             align="center"
-            color="text.main"
             gutterBottom
           >
             Projects
           </Typography>
-          <Grid container spacing={3} align="center" sx={{ pt: 4 }}>
+          <Grid className="projects-grid" container spacing={3} align="center">
             {projects.map((project, index) => (
-              <Grid item xs={12} sm={12} med={6} key={index}>
-                <Card
-                  sx={{
-                    maxWidth: "345",
-                    backgroundColor: "background.variant",
-                  }}
-                >
-                  <CardMedia
-                    sx={{ height: 0, paddingTop: "56%" }}
-                    image={project.imageUrl}
-                    title={project.title}
-                  />
+              <Grid
+                className="projects-grid-item"
+                item
+                xs={12}
+                sm={6}
+                md={4}
+                key={index}
+              >
+                <Card className="projects-card">
+                  {project.imageUrl ? (
+                    <CardMedia
+                      className="projects-card-media"
+                      image={project.imageUrl}
+                      title={project.title}
+                    />
+                  ) : (
+                    <Box className="projects-card-media projects-card-placeholder" />
+                  )}
                   <CardContent>
                     <Typography
+                      className="projects-card-title"
                       gutterBottom
                       variant="h4"
                       fontWeight="600"
-                      color="text.main"
                       component="h2"
-                      sx={{ mb: 2 }}
                     >
                       {project.title}
                     </Typography>
-                    <Typography variant="h6" color="text.sub" component="p">
+                    <Typography
+                      className="projects-card-description"
+                      variant="h6"
+                      component="p"
+                    >
                       {project.description}
                     </Typography>
                   </CardContent>
-                  <CardActions>
+                  <CardActions className="projects-card-actions">
                     <Button
                       size="small"
                       color="primary"
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener"
+                      href={project.demoUrl || undefined}
+                      target={project.demoUrl ? "_blank" : undefined}
+                      rel={project.demoUrl ? "noopener" : undefined}
+                      disabled={!project.demoUrl}
                     >
                       Demo
                     </Button>
                     <Button
                       size="small"
                       color="primary"
-                      href={project.sourceUrl}
-                      target="_blank"
-                      rel="noopener"
+                      href={project.sourceUrl || undefined}
+                      target={project.sourceUrl ? "_blank" : undefined}
+                      rel={project.sourceUrl ? "noopener" : undefined}
+                      disabled={!project.sourceUrl}
                     >
                       Source
                     </Button>
@@ -134,6 +142,6 @@ export default function Projects() {
           </Grid>
         </Container>
       </Box>
-    </ThemeProvider>
+    </>
   );
 }

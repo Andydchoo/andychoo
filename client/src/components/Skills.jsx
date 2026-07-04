@@ -2,327 +2,85 @@ import * as React from "react";
 import {
   Card,
   CardContent,
-  CardMedia,
-  CssBaseline,
-  Grid,
   Stack,
   Box,
   Typography,
   Container,
 } from "@mui/material";
-import { ThemeProvider } from "@emotion/react";
-import { theme } from "../styles/styles";
+
+const skillGroups = [
+  {
+    title: "Front-end",
+    skills: [
+      { name: "Bootstrap", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
+      { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+      { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+      { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      { name: "jQuery", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" },
+      { name: "Material UI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg" },
+      { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "Redux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
+    ],
+  },
+  {
+    title: "Back-end",
+    skills: [
+      { name: "Express", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+      { name: "Heroku", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original.svg" },
+      { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+      { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+      { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+      { name: "Sanity", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sanity/sanity-original.svg" },
+      { name: "Strapi", icon: "https://cdn.simpleicons.org/strapi/4945ff" },
+    ],
+  },
+];
 
 export default function Skills() {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <a
-        className="anchor"
-        id="Skills"
-        href="/#"
-        style={{
-          display: "block",
-          position: "relative",
-          top: "-68px",
-          visibility: "hidden",
-        }}
-      >
+    <>
+      <a className="skills-anchor" id="Skills" href="/#">
         a
       </a>
-      <Card
-        elevation={4}
-        sx={{
-          margin: 3,
-          backgroundColor: "background.variant",
-          borderRadius: "7px",
-        }}
-      >
-        <Box
-          sx={{
-            pt: 8,
-            pb: 6,
-            maxWidth: "med",
-          }}
-        >
+      <Card className="skills" elevation={4}>
+        <Box className="skills-inner">
           <Container>
             <Typography
+              className="skills-title"
               component="h1"
               variant="h2"
-              fontWeight="600"
               align="center"
-              color="text.main"
               gutterBottom
             >
-              Technical Skills
+              My Technical Skills
             </Typography>
-            <Stack sx={{ pt: 4 }} direction="row" justifyContent="space-evenly">
-              {/* Front-end card */}
-              <Grid item>
-                <Card
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    backgroundColor: "background.variant2",
-                    alignItems: "center",
-                    borderRadius: "7px",
-                  }}
-                  elevation={3}
-                >
-                  <CardContent sx={{ flexGrow: 1 }}>
+            <Stack className="skills-list" direction="row">
+              {skillGroups.map((group) => (
+                <Card className="skills-card" elevation={3} key={group.title}>
+                  <CardContent className="skills-card-content">
                     <Typography
+                      className="skills-card-title"
                       gutterBottom
                       variant="h4"
                       component="h2"
-                      color="text.main"
                     >
-                      Front-end
+                      {group.title}
                     </Typography>
                   </CardContent>
-                  <Card
-                    sx={{
-                      display: "flex",
-                      flexDirection: { xs: "column", med: "row" },
-                      background: "none",
-                    }}
-                  >
-                    <Stack
-                      direction="column"
-                      justifyContent="space-evenly"
-                      sx={{ height: "100%" }}
-                    >
-                      <CardMedia
-                        sx={{
-                          maxWidth: "250px",
-                          maxHeight: "55px",
-                          minHeight: "35px",
-                        }}
-                        component="img"
-                        image="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"
-                        alt="javascript"
-                      />
-                      <CardMedia
-                        sx={{
-                          maxWidth: "250px",
-                          maxHeight: "55px",
-                          minHeight: "40px",
-                          minWidth: "150px",
-                        }}
-                        component="img"
-                        image="https://img.shields.io/badge/HTML-05B0F6?style=for-the-badge&logo=html5&logoColor=F74913"
-                        alt="html"
-                      />
-                      <CardMedia
-                        sx={{
-                          maxWidth: "250px",
-                          maxHeight: "55px",
-                          minHeight: "40px",
-                          minWidth: "150px",
-                        }}
-                        component="img"
-                        image="https://img.shields.io/badge/CSS-136EB4?&style=for-the-badge&logo=css3&logoColor=white"
-                        alt="css"
-                      />
-                      <CardMedia
-                        sx={{
-                          maxWidth: "250px",
-                          maxHeight: "55px",
-                          minHeight: "40px",
-                          minWidth: "150px",
-                          borderBottomLeftRadius: "5px",
-                          borderBottomRightRadius: "5px",
-                        }}
-                        component="img"
-                        image="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white"
-                        alt="jquery"
-                      />
-                    </Stack>
-                    <Stack
-                      direction="column"
-                      justifyContent="space-evenly"
-                      sx={{ height: "100%", pb: 1 }}
-                    >
-                      <CardMedia
-                        sx={{
-                          maxWidth: "250px",
-                          maxHeight: "55px",
-                          minHeight: "40px",
-                          minWidth: "150px",
-                        }}
-                        component="img"
-                        image="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"
-                        alt="react"
-                      />
-                      <CardMedia
-                        sx={{
-                          maxWidth: "250px",
-                          maxHeight: "55px",
-                          minHeight: "40px",
-                          minWidth: "150px",
-                        }}
-                        component="img"
-                        image="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"
-                        alt="bootstrap"
-                      />
-                      <CardMedia
-                        sx={{
-                          maxWidth: "250px",
-                          maxHeight: "55px",
-                          minHeight: "40px",
-                          minWidth: "150px",
-                        }}
-                        component="img"
-                        image="https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white"
-                        alt="mui"
-                      />
-                      <CardMedia
-                        sx={{
-                          maxWidth: "250px",
-                          maxHeight: "55px",
-                          minHeight: "40px",
-                          minWidth: "150px",
-                          borderBottomLeftRadius: "5px",
-                          borderBottomRightRadius: "5px",
-                        }}
-                        component="img"
-                        image="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white"
-                        alt="redux"
-                      />
-                    </Stack>
+                  <Card className="skills-card-grid">
+                    {group.skills.map((skill) => (
+                      <div className="skills-card-item" key={skill.name}>
+                        <img className="skills-card-icon" src={skill.icon} alt="" />
+                        <span>{skill.name}</span>
+                      </div>
+                    ))}
                   </Card>
                 </Card>
-              </Grid>
-              {/* Backend card */}
-              <Grid item>
-                <Card
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    backgroundColor: "background.variant2",
-                    alignItems: "center",
-                    borderRadius: "7px",
-                  }}
-                  elevation={3}
-                >
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography
-                      gutterBottom
-                      variant="h4"
-                      component="h2"
-                      color="text.main"
-                    >
-                      Back-end
-                    </Typography>
-                  </CardContent>
-                  <Card
-                    sx={{
-                      display: "flex",
-                      flexDirection: { xs: "column", med: "row" },
-                      background: "none",
-                    }}
-                  >
-                    <Stack
-                      direction="column"
-                      justifyContent="space-evenly"
-                      sx={{ height: "100%" }}
-                    >
-                      <CardMedia
-                        sx={{
-                          maxWidth: "250px",
-                          maxHeight: "55px",
-                          minHeight: "20px",
-                        }}
-                        component="img"
-                        image="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white"
-                        alt="nodejs"
-                      />
-                      <CardMedia
-                        sx={{
-                          maxWidth: "250px",
-                          maxHeight: "55px",
-                          minHeight: "40px",
-                          minWidth: "150px",
-                        }}
-                        component="img"
-                        image="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white"
-                        alt="mongodb"
-                      />
-                      <CardMedia
-                        sx={{
-                          maxWidth: "250px",
-                          maxHeight: "55px",
-                          minHeight: "40px",
-                          minWidth: "150px",
-                          borderBottomLeftRadius: "5px",
-                          borderBottomRightRadius: "5px",
-                        }}
-                        component="img"
-                        image="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge"
-                        alt="express"
-                      />
-                      <CardMedia
-                        sx={{
-                          maxWidth: "250px",
-                          maxHeight: "55px",
-                          minHeight: "40px",
-                          minWidth: "150px",
-                          borderBottomLeftRadius: "5px",
-                          borderBottomRightRadius: "5px",
-                        }}
-                        component="img"
-                        image="https://img.shields.io/badge/Sanity-ff5c5c?style=for-the-badge&logo=sanity&logoColor=white"
-                        alt="sanity"
-                      />
-                    </Stack>
-                    <Stack
-                      direction="column"
-                      justifyContent="space-evenly"
-                      sx={{ height: "100%", pb: 1 }}
-                    >
-                      <CardMedia
-                        sx={{
-                          maxWidth: "250px",
-                          maxHeight: "55px",
-                          minHeight: "40px",
-                          minWidth: "150px",
-                        }}
-                        component="img"
-                        image="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white"
-                        alt="mysql"
-                      />
-                      <CardMedia
-                        sx={{
-                          maxWidth: "250px",
-                          maxHeight: "55px",
-                          minHeight: "40px",
-                          minWidth: "150px",
-                        }}
-                        component="img"
-                        image="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white"
-                        alt="heroku"
-                      />
-                      <CardMedia
-                        sx={{
-                          maxWidth: "250px",
-                          maxHeight: "55px",
-                          minHeight: "40px",
-                          minWidth: "150px",
-                          borderBottomLeftRadius: "5px",
-                          borderBottomRightRadius: "5px",
-                        }}
-                        component="img"
-                        image="https://img.shields.io/badge/Strapi-7134eb?style=for-the-badge&logo=strapi&logoColor=white"
-                        alt="heroku"
-                      />
-                    </Stack>
-                  </Card>
-                </Card>
-              </Grid>
-              {/* End of cards */}
+              ))}
             </Stack>
           </Container>
         </Box>
       </Card>
-    </ThemeProvider>
+    </>
   );
 }

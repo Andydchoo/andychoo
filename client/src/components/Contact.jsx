@@ -4,20 +4,13 @@ import {
   TextField,
   Button,
   Typography,
-  CssBaseline,
   Box,
   Card,
   Link,
   Container,
   Stack,
-  InputAdornment,
 } from "@mui/material";
-import PersonIcon from "@mui/icons-material/Person";
 import Email from "@mui/icons-material/Email";
-import SubjectIcon from "@mui/icons-material/Subject";
-import CommentIcon from "@mui/icons-material/Comment";
-import { ThemeProvider } from "@emotion/react";
-import { theme } from "../styles/styles";
 
 // - Todo
 //    - Fix up spacing
@@ -52,67 +45,33 @@ export default function Contact() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <a
-        className="anchor"
-        id="Contact"
-        alt="anchor"
-        href="/#"
-        style={{
-          display: "block",
-          position: "relative",
-          top: "-68px",
-          visibility: "hidden",
-        }}
-      >
+    <>
+      <a className="contact-anchor" id="Contact" href="/#">
         a
       </a>
-      <Container
-        sx={{
-          display: {
-            xs: "block",
-            sm: "block",
-            med: "block",
-            lg: "flex",
-            xl: "flex",
-          },
-          maxWidth: { xs: "sm", sm: "sm", med: "sm", lg: "xl", xl: "xl" },
-          alignItems: "center",
-          mb: 5,
-        }}
-      >
+      <Container className="contact-layout">
         {/* Title/description */}
-        <Stack
-          direction="column"
-          sx={{
-            justifyContent: "space-evenly",
-            flex: "1",
-            alignItems: "center",
-          }}
-        >
+        <Stack className="contact-intro" direction="column">
           <Typography
+            className="contact-title"
             variant="h2"
             fontWeight="600"
             align="center"
-            color="text.main"
             gutterBottom
           >
             Contact Me
           </Typography>
           <Typography
+            className="contact-description"
             variant="h6"
             align="center"
             gutterBottom
-            sx={{
-              color: "text.sub",
-              maxWidth: "sm",
-            }}
           >
             Want to get in touch? Send me a message, and I'll get back to you as
             soon as I can!
           </Typography>
           <Link
+            className="contact-email"
             variant="h6"
             align="center"
             target="_blank"
@@ -128,59 +87,25 @@ export default function Contact() {
         </Stack>
 
         {/* Contact Form Card */}
-        <Card
-          elevation={5}
-          sx={{
-            backgroundColor: "background.variant",
-            flex: "1",
-            pb: 5,
-            pt: 5,
-            borderRadius: "7px",
-          }}
-        >
+        <Card className="contact-card" elevation={5}>
           <Box
+            className="contact-form"
             component="form"
             ref={form}
             onSubmit={handleSubmit}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-            }}
           >
-            <Stack
-              direction="column"
-              sx={{
-                alignItems: "center",
-                justifyContent: "center",
-                width: "90%",
-              }}
-            >
+            <Stack className="contact-fields" direction="column">
               <TextField
+                className="contact-field"
                 label="Name"
                 variant="outlined"
                 fullWidth
                 required
                 name="user_name"
                 margin="normal"
-                sx={{
-                  m: 3,
-                  input: { color: "text.main" },
-                  "& label": { color: "text.main" },
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": {
-                      borderColor: "text.main",
-                    },
-                  },
-                }}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start" sx={{ color: "text.sub" }}>
-                      <PersonIcon />
-                    </InputAdornment>
-                  ),
-                }}
               />
               <TextField
+                className="contact-field"
                 label="Email"
                 type="email"
                 variant="outlined"
@@ -188,50 +113,18 @@ export default function Contact() {
                 required
                 name="user_email"
                 margin="normal"
-                sx={{
-                  m: 3,
-                  input: { color: "text.main" },
-                  "& label": { color: "text.main" },
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": {
-                      borderColor: "text.main",
-                    },
-                  },
-                }}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start" sx={{ color: "text.sub" }}>
-                      <Email />
-                    </InputAdornment>
-                  ),
-                }}
               />
               <TextField
+                className="contact-field"
                 label="Subject"
                 variant="outlined"
                 fullWidth
                 required
                 name="subject"
                 margin="normal"
-                sx={{
-                  m: 3,
-                  input: { color: "text.main" },
-                  "& label": { color: "text.main" },
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": {
-                      borderColor: "text.main",
-                    },
-                  },
-                }}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start" sx={{ color: "text.sub" }}>
-                      <SubjectIcon />
-                    </InputAdornment>
-                  ),
-                }}
               />
               <TextField
+                className="contact-field"
                 label="Message"
                 variant="outlined"
                 fullWidth
@@ -239,38 +132,21 @@ export default function Contact() {
                 required
                 name="message"
                 rows={4}
-                inputProps={{ style: { color: "white" } }}
-                sx={{
-                  m: 3,
-                  "& label": { color: "text.main" },
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": {
-                      borderColor: "text.main",
-                    },
-                  },
-                }}
                 margin="normal"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start" sx={{ color: "text.sub" }}>
-                      <CommentIcon />
-                    </InputAdornment>
-                  ),
-                }}
               />
               <Button
+                className="contact-submit"
                 variant="contained"
                 color="primary"
                 type="submit"
-                sx={{ m: 3, fontWeight: "600" }}
               >
                 Send Message
               </Button>
               <Typography
+                className="contact-status"
                 variant="h6"
                 align="center"
                 gutterBottom
-                sx={{ color: "text.sub", maxWidth: "sm" }}
               >
                 {success}
               </Typography>
@@ -278,6 +154,6 @@ export default function Contact() {
           </Box>
         </Card>
       </Container>
-    </ThemeProvider>
+    </>
   );
 }

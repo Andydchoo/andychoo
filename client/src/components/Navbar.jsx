@@ -9,10 +9,7 @@ import {
   Button,
   MenuItem,
   Fade,
-  CssBaseline,
 } from "@mui/material";
-import { ThemeProvider } from "@emotion/react";
-import { theme } from "../styles/styles";
 import MenuIcon from "@mui/icons-material/Menu";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -31,32 +28,23 @@ export default function Navbar() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        elevation={5}
-        sx={{ backgroundColor: "background.variant" }}
-      >
-        <Box padding="0px 30px">
+    <>
+      <AppBar className="navbar" position="fixed" elevation={5}>
+        <Box className="navbar-inner">
           <Toolbar disableGutters>
             {/* Hamburger Menu */}
-            <Box
-              sx={{
-                flex: 1,
-                display: { xs: "flex", md: "none", lg: "none", xl: "none" },
-              }}
-            >
+            <Box className="navbar-mobile-menu">
               <IconButton
                 size="large"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleClick}
-                color="text.main"
+                className="navbar-icon-link"
               >
-                <MenuIcon sx={{ color: "text.main" }} />
+                <MenuIcon className="navbar-menu-icon" />
               </IconButton>
               <Menu
+                className="navbar-menu"
                 id="menu-nav"
                 anchorEl={anchorEl}
                 elevation={5}
@@ -72,17 +60,10 @@ export default function Navbar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
                 TransitionComponent={Fade}
-                sx={{
-                  display: { xs: "block", md: "none", lg: "none", xl: "none" },
-                  backgroundColor: "none",
-                  "& .MuiPaper-root": {
-                    backgroundColor: "rgb(18, 18, 18)",
-                  },
-                }}
               >
                 {pages.map((page) => (
                   <MenuItem key={page} onClick={handleClose}>
-                    <Button href={"#" + page} sx={{ color: "text.main" }}>
+                    <Button className="navbar-menu-link" href={"#" + page}>
                       {page}
                     </Button>
                   </MenuItem>
@@ -92,43 +73,22 @@ export default function Navbar() {
 
             {/* Name text */}
             <Typography
+              className="navbar-brand"
               variant="h4"
               noWrap
               component="a"
               href="/"
-              sx={{
-                display: { xs: "none", sm: "none", med: "flex" },
-                flex: 0.5,
-                fontFamily: "Open sans",
-                fontWeight: 700,
-                letterSpacing: ".1rem",
-                color: "text.main",
-                textDecoration: "none",
-                justifyContent: { sm: "center", med: "center", lg: "start" },
-              }}
             >
               Andy Choo
             </Typography>
 
             {/* Nav buttons for med-larger screens */}
-            <Box
-              sx={{
-                flex: 1,
-                display: { xs: "none", sm: "none", md: "flex" },
-                justifyContent: "space-evenly",
-              }}
-            >
+            <Box className="navbar-links">
               {pages.map((page) => (
                 <Button
+                  className="navbar-link"
                   key={page}
                   href={"#" + page}
-                  sx={{
-                    margin: 2,
-                    color: "text.main",
-                    display: "flex",
-                    fontFamily: "Open sans",
-                    fontWeight: "600",
-                  }}
                 >
                   {"//"}
                   {page}
@@ -137,28 +97,18 @@ export default function Navbar() {
             </Box>
 
             {/* Social's icons */}
-            <Box
-              sx={{
-                flex: 0.5,
-                display: { xs: "flex", sm: "flex" },
-                justifyContent: "flex-end",
-              }}
-            >
+            <Box className="navbar-social-links">
               <Button
+                className="navbar-icon-link"
                 href="https://github.com/Andydchoo"
                 target="_blank"
-                sx={{
-                  color: "text.main",
-                }}
               >
                 <GitHubIcon />
               </Button>
               <Button
+                className="navbar-icon-link"
                 href="https://www.linkedin.com/in/andychoo"
                 target="_blank"
-                sx={{
-                  color: "text.main",
-                }}
               >
                 <LinkedInIcon />
               </Button>
@@ -166,6 +116,6 @@ export default function Navbar() {
           </Toolbar>
         </Box>
       </AppBar>
-    </ThemeProvider>
+    </>
   );
 }

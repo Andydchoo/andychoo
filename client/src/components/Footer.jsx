@@ -2,52 +2,34 @@ import React from "react";
 import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import { ThemeProvider } from "@emotion/react";
-import { theme } from "../styles/styles";
-import { CssBaseline } from "@mui/material";
 
 export default function Footer() {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <AppBar
-        position="static"
-        color="primary"
-        sx={{ bottom: 0, width: "100%" }}
-      >
+    <>
+      <AppBar className="footer" position="static">
         <Toolbar>
-          <Typography variant="body1" color="background.default">
+          <Typography className="footer-copyright" variant="body1">
             &copy; 2023 Andy Choo
           </Typography>
           {/* Social's icons */}
-          <Box
-            sx={{
-              flex: 1,
-              display: { xs: "flex", sm: "flex" },
-              justifyContent: "flex-end",
-            }}
-          >
+          <Box className="footer-socials">
             <Button
+              className="footer-link"
               href="https://github.com/Andydchoo"
               target="_blank"
-              sx={{
-                color: "background.default",
-              }}
             >
               <GitHubIcon />
             </Button>
             <Button
+              className="footer-link"
               href="https://www.linkedin.com/in/andychoo"
               target="_blank"
-              sx={{
-                color: "background.default",
-              }}
             >
               <LinkedInIcon />
             </Button>
           </Box>
         </Toolbar>
       </AppBar>
-    </ThemeProvider>
+    </>
   );
 }

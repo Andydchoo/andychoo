@@ -11,7 +11,7 @@
   --color-text-soft: #66616d;
   --shadow-card: 0 18px 40px rgba(0, 0, 0, 0.28);
   --radius-card: 14px;
-  --nav-height: 125px;
+  --nav-height: 64px;
   --font-primary: "Alfacad", "Afacad", sans-serif;
 }
 
@@ -74,13 +74,14 @@ select {
 
 .navbar-mobile-menu {
   display: flex;
-  flex: 1;
+  flex: 0 0 auto;
+  margin-left: auto;
 }
 
 .navbar-brand {
   color: var(--color-white);
-  display: none;
-  flex: 0 0 260px;
+  display: flex;
+  flex: 0 1 auto;
   font-size: 2.5rem;
   font-weight: 700;
   letter-spacing: 0;
@@ -106,12 +107,15 @@ select {
   text-transform: none;
 }
 
-.navbar-social-links,
 .footer-socials {
   display: flex;
   flex: 0 0 150px;
   gap: 1.6rem;
   justify-content: flex-end;
+}
+
+.navbar-social-links {
+  display: none;
 }
 
 .navbar-icon-link,
@@ -127,7 +131,7 @@ select {
 }
 
 .navbar-icon-link .MuiSvgIcon-root {
-  font-size: 48px;
+  font-size: 40px;
 }
 
 .navbar-menu .MuiPaper-root {
@@ -137,7 +141,7 @@ select {
 .about {
   background: var(--color-black);
   margin-top: var(--nav-height);
-  padding: clamp(4rem, 8vw, 7rem) 0 clamp(3rem, 7vw, 6rem);
+  padding: clamp(2rem, 8vw, 7rem) 0 clamp(3rem, 7vw, 6rem);
 }
 
 .about-layout {
@@ -153,7 +157,9 @@ select {
   display: flex;
   gap: 1rem;
   justify-content: center;
+  justify-self: center;
   max-width: 555px;
+  width: 100%;
 }
 
 .about-title {
@@ -161,7 +167,6 @@ select {
   font-size: clamp(3rem, 5.5vw, 4.375rem);
   font-weight: 700;
   line-height: 1;
-
 }
 
 .about-heading {
@@ -174,6 +179,7 @@ select {
 
 .about-heading-accent {
   color: var(--color-purple);
+  font-weight: 600;
 }
 
 .about-description {
@@ -181,7 +187,7 @@ select {
   font-size: clamp(1.15rem, 1.9vw, 1.5rem);
   font-weight: 400;
   line-height: 1.3;
-
+  font-style: italic;
 }
 
 .about-projects-button {
@@ -254,6 +260,7 @@ select {
   display: flex;
   flex: 1;
   flex-direction: column;
+  min-width: 0;
   overflow: hidden;
 }
 
@@ -266,7 +273,6 @@ select {
   color: var(--color-text-dark);
   font-size: clamp(2rem, 3.2vw, 2.5rem);
   font-weight: 500;
-  line-height: 1;
   text-align: center;
 }
 
@@ -276,9 +282,9 @@ select {
   border-radius: 0;
   box-shadow: none;
   display: grid;
-  gap: 3.25rem 2rem;
-  grid-template-columns: repeat(4, minmax(80px, 1fr));
-  padding: 2.25rem 2rem 3.25rem;
+  gap: 1rem 0;
+  grid-template-columns: repeat(3, minmax(72px, 1fr));
+  padding: 1rem 1.5rem 3.25rem;
 }
 
 .skills-card-item {
@@ -286,22 +292,23 @@ select {
   color: var(--color-text-dark);
   display: flex;
   flex-direction: column;
-  font-size: clamp(1.1rem, 1.9vw, 1.5rem);
+  font-size: clamp(1.1rem, 1.9vw, 1.4rem);
   font-weight: 400;
   gap: 0.85rem;
   line-height: 1;
   text-align: center;
+  min-width: 0;
 }
 
 .skills-card-icon {
-  height: clamp(4rem, 6vw, 5.75rem);
+  height: clamp(4rem, 6vw, 5.5rem);
   object-fit: contain;
-  width: clamp(4rem, 6vw, 5.75rem);
+  width: clamp(4rem, 6vw, 5.5rem);
 }
 
 .projects {
   background: var(--color-black);
-  padding: clamp(4rem, 8vw, 7rem) 1.5rem;
+  padding: clamp(3rem, 6vw, 4.25rem) 1.5rem;
 }
 
 .projects .MuiContainer-root {
@@ -501,9 +508,10 @@ select {
 }
 
 .footer .MuiToolbar-root {
-  margin: 0 auto;
-  max-width: 1100px;
-  min-height: 48px;
+  justify-content: space-between;
+  margin: 0;
+  min-height: 70px;
+  padding: 0 clamp(2rem, 3vw, 3rem);
   width: 100%;
 }
 
@@ -512,13 +520,49 @@ select {
   color: var(--color-white);
 }
 
+.footer-copyright {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.footer-socials {
+  flex: 0 0 auto;
+  gap: 1.6rem;
+}
+
+.footer-link {
+  height: 48px;
+  min-width: 0;
+  padding: 0;
+  width: 48px;
+}
+
+.footer-link .MuiSvgIcon-root {
+  font-size: 36px;
+}
+
+/* Breakpoints section */
+@media (min-width: 570px) {
+  .skills-card-grid {
+    grid-template-columns: repeat(2, minmax(86px, 1fr));
+  }
+  .skills-list {
+    flex-direction: row;
+  }
+}
+
 @media (min-width: 750px) {
-  .navbar-brand {
-    display: flex;
+  .skills-card-grid {
+    grid-template-columns: repeat(3, minmax(72px, 1fr));
   }
 }
 
 @media (min-width: 900px) {
+  .navbar-brand {
+    flex: 0 0 260px;
+  }
+
   .navbar-mobile-menu {
     display: none;
   }
@@ -527,12 +571,28 @@ select {
     display: flex;
   }
 
-  .about-layout {
-    grid-template-columns: 1.25fr 0.75fr;
+  .navbar-social-links {
+    display: flex;
+    flex: 0 0 150px;
+    gap: 1.6rem;
+    justify-content: flex-end;
   }
 
-  .skills-list {
-    flex-direction: row;
+  .about-layout {
+    column-gap: clamp(3rem, 6vw, 4rem);
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+
+  .about-photo {
+    justify-self: start;
+  }
+
+  .about-copy {
+    justify-self: start;
+  }
+
+.skills-card-grid {
+    grid-template-columns: repeat(4, minmax(72px, 1fr));
   }
 
   .contact-layout {

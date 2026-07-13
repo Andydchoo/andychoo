@@ -32,6 +32,44 @@ export default function Navbar() {
       <AppBar className="navbar" position="fixed" elevation={5}>
         <Box className="navbar-inner">
           <Toolbar disableGutters>
+            {/* Name text */}
+            <Typography
+              className="navbar-brand"
+              variant="h4"
+              noWrap
+              component="a"
+              href="/"
+            >
+              Andy Choo
+            </Typography>
+
+            {/* Nav buttons for med-larger screens */}
+            <Box className="navbar-links">
+              {pages.map((page) => (
+                <Button className="navbar-link" key={page} href={"#" + page}>
+                  {"//"}
+                  {page}
+                </Button>
+              ))}
+            </Box>
+
+            {/* Social's icons */}
+            <Box className="navbar-social-links">
+              <Button
+                className="navbar-icon-link"
+                href="https://github.com/Andydchoo"
+                target="_blank"
+              >
+                <GitHubIcon />
+              </Button>
+              <Button
+                className="navbar-icon-link"
+                href="https://www.linkedin.com/in/andychoo"
+                target="_blank"
+              >
+                <LinkedInIcon />
+              </Button>
+            </Box>
             {/* Hamburger Menu */}
             <Box className="navbar-mobile-menu">
               <IconButton
@@ -69,49 +107,6 @@ export default function Navbar() {
                   </MenuItem>
                 ))}
               </Menu>
-            </Box>
-
-            {/* Name text */}
-            <Typography
-              className="navbar-brand"
-              variant="h4"
-              noWrap
-              component="a"
-              href="/"
-            >
-              Andy Choo
-            </Typography>
-
-            {/* Nav buttons for med-larger screens */}
-            <Box className="navbar-links">
-              {pages.map((page) => (
-                <Button
-                  className="navbar-link"
-                  key={page}
-                  href={"#" + page}
-                >
-                  {"//"}
-                  {page}
-                </Button>
-              ))}
-            </Box>
-
-            {/* Social's icons */}
-            <Box className="navbar-social-links">
-              <Button
-                className="navbar-icon-link"
-                href="https://github.com/Andydchoo"
-                target="_blank"
-              >
-                <GitHubIcon />
-              </Button>
-              <Button
-                className="navbar-icon-link"
-                href="https://www.linkedin.com/in/andychoo"
-                target="_blank"
-              >
-                <LinkedInIcon />
-              </Button>
             </Box>
           </Toolbar>
         </Box>

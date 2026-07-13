@@ -16,43 +16,42 @@ import {
 const projects = [
   {
     title: "SankyuStudio",
-    description: "A full-stack ecommerce website built with Next.js",
+    description:
+      "Full-stack ecommerce website built with Next.js, Vercel, Stripe, and Sanity.io",
     imageUrl: "assets/sankyu.webp",
     demoUrl: "https://sankyustudio.vercel.app/",
     sourceUrl: "https://github.com/Andydchoo/sankyu-next",
   },
   {
-    title: "The Daily Bounty(WIP)",
-    description: "Service for users to purchase food waste for cheap.",
-    imageUrl: "assets/tdb.webp",
-    demoUrl: "https://thedailybounty.com",
-    sourceUrl: "",
-  },
-  {
     title: "VodU",
-    description: "Upload, view, and comment on clips from video games.",
+    description:
+      "Full-stack web app to upload, view, and comment on clips from video games. Built with React.js, Express.js, and MongoDB.",
     imageUrl: "assets/vodu.webp",
     demoUrl: "https://vod-u-front.onrender.com/",
     sourceUrl: "https://github.com/Copernichris/Vodu",
   },
+  // {
+  //   title: "The Daily Bounty(WIP)",
+  //   description:
+  //     "Web app for users to purchase leftover food for cheap. Built with React.js, and Express.js",
+  //   imageUrl: "assets/tdb.webp",
+  //   demoUrl: "https://thedailybounty.com",
+  //   sourceUrl: "https://github.com/daily-bounty/daily-bounty",
+  // },
+  // {
+  //   title: "Restaurant Order Management System",
+  //   description:
+  //     "Full-stack web app to create, manage, and track orders for a restaurant. Built with HTML, CSS, JavaScript, and SQL.",
+  //   imageUrl: "assets/jellyfin.png",
+  //   demoUrl: "",
+  //   sourceUrl:
+  //     "https://github.com/Andydchoo/Restaurant-Order-Management-System",
+  // },
   {
-    title: "Mern Todolist",
-    description: "A simple todo list app built using the mern stack.",
-    imageUrl: "assets/merntodo.webp",
-    demoUrl: "https://mern-todo-front.onrender.com/",
-    sourceUrl: "https://github.com/Andydchoo/Mern-todo",
-  },
-  {
-    title: "Project 5",
-    description: "Description",
-    imageUrl: "",
-    demoUrl: "",
-    sourceUrl: "",
-  },
-  {
-    title: "Project 6",
-    description: "Description",
-    imageUrl: "",
+    title: "Home Server",
+    description:
+      "Self-hosted linux server running Jellyfin, Pihole, and secured through a TailScale VPN.",
+    imageUrl: "assets/jellyfin.png",
     demoUrl: "",
     sourceUrl: "",
   },
@@ -114,28 +113,32 @@ export default function Projects() {
                       {project.description}
                     </Typography>
                   </CardContent>
-                  <CardActions className="projects-card-actions">
-                    <Button
-                      size="small"
-                      color="primary"
-                      href={project.demoUrl || undefined}
-                      target={project.demoUrl ? "_blank" : undefined}
-                      rel={project.demoUrl ? "noopener" : undefined}
-                      disabled={!project.demoUrl}
-                    >
-                      Demo
-                    </Button>
-                    <Button
-                      size="small"
-                      color="primary"
-                      href={project.sourceUrl || undefined}
-                      target={project.sourceUrl ? "_blank" : undefined}
-                      rel={project.sourceUrl ? "noopener" : undefined}
-                      disabled={!project.sourceUrl}
-                    >
-                      Source
-                    </Button>
-                  </CardActions>
+                  {(project.demoUrl || project.sourceUrl) && (
+                    <CardActions className="projects-card-actions">
+                      {project.demoUrl && (
+                        <Button
+                          size="small"
+                          color="primary"
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener"
+                        >
+                          Demo
+                        </Button>
+                      )}
+                      {project.sourceUrl && (
+                        <Button
+                          size="small"
+                          color="primary"
+                          href={project.sourceUrl}
+                          target="_blank"
+                          rel="noopener"
+                        >
+                          Source
+                        </Button>
+                      )}
+                    </CardActions>
+                  )}
                 </Card>
               </Grid>
             ))}

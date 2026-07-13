@@ -19,6 +19,15 @@ export default function About() {
       {/* Container for whole section */}
       <Box className="about">
         <Container className="about-layout">
+          {/* Headshot card */}
+          <Card className="about-photo" variant="outlined">
+            <CardMedia
+              component="img"
+              src="/assets/headshot.webp"
+              alt="Andy Choo"
+            />
+          </Card>
+
           {/* Stack for description for about me */}
           <Stack className="about-copy" direction="column">
             <Typography
@@ -49,9 +58,8 @@ export default function About() {
               align="left"
               paragraph
             >
-              Outside of client work, I'm usually tinkering with my homelab
-              server, collecting music, playing guitar, or on the pickleball
-              court.
+              Outside of client work, I'm usually adding to my homelab server,
+              collecting music, practicing guitar, playing golf, or pickleball.
             </Typography>
             <Button
               className="about-projects-button"
@@ -61,15 +69,6 @@ export default function About() {
               View my work →
             </Button>
           </Stack>
-
-          {/* Headshot card */}
-          <Card className="about-photo" variant="outlined">
-            <CardMedia
-              component="img"
-              src="/assets/headshot.webp"
-              alt="Andy Choo"
-            />
-          </Card>
         </Container>
       </Box>
     </>

@@ -15,17 +15,17 @@ export default function Footer() {
           <Box className="footer-socials">
             <Button
               className="footer-link"
-              href="https://github.com/Andydchoo"
-              target="_blank"
-            >
-              <GitHubIcon />
-            </Button>
-            <Button
-              className="footer-link"
               href="https://www.linkedin.com/in/andychoo"
               target="_blank"
             >
               <LinkedInIcon />
+            </Button>
+            <Button
+              className="footer-link"
+              href="https://github.com/Andydchoo"
+              target="_blank"
+            >
+              <GitHubIcon />
             </Button>
           </Box>
         </Toolbar>

@@ -58,8 +58,9 @@ export default function About() {
               align="left"
               paragraph
             >
-              Outside of client work, I'm usually adding to my homelab server,
-              collecting music, practicing guitar, playing golf, or pickleball.
+              Outside of client work, I'm usually playing with my homelab
+              server, collecting music, practicing guitar, playing golf, or
+              pickleball.
             </Typography>
             <Button
               className="about-projects-button"
